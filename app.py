@@ -14,8 +14,6 @@ feature4 = st.number_input("Feature 4")
 
 if st.button("Predict"):
 
-    data = pd.DataFrame([[feature1, feature2, feature3, feature4]])
-
-    prediction = model.predict(data)
-
+    
+    prediction = model.predict([[feature1, feature2, feature3, feature4]])
     st.success(f"Prediction: {prediction[0]}")
