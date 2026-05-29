@@ -1,19 +1,20 @@
 import streamlit as st
 import joblib
-import numpy as np
+import pandas as pd
 
 # Load model
 model = joblib.load("success_model.pkl")
 
-st.title("🎬 Success Predictor")
+st.title("Success Predictor App")
 
-rating = st.slider("Movie Rating", 0.0, 10.0, 5.0)
-
-votes = st.number_input("Votes", min_value=0)
+feature1 = st.number_input("Feature 1")
+feature2 = st.number_input("Feature 2")
+feature3 = st.number_input("Feature 3")
+feature4 = st.number_input("Feature 4")
 
 if st.button("Predict"):
 
-    data = np.array([[rating, votes]])
+    data = pd.DataFrame([[feature1, feature2, feature3, feature4]])
 
     prediction = model.predict(data)
 
